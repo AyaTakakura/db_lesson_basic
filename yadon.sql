@@ -47,41 +47,6 @@ VALUES
 (19,15,'人事ヤドンの日報','2025-04-26 09:30:00', '2025-04-26 09:30:00'),
 (20,16,'情シスヤドンの日報','2025-04-26 09:30:00', '2025-04-26 09:30:00');
 
-Q3修正
-INSERT INTO departments (department_id, name)
-VALUES
-(1,'営業'),
-(2,'開発'),
-(3,'経理'),
-(4,'人事'),
-(5,'情報システム');
-
-INSERT INTO people(name,email,department_id,age,gender)
-VALUES
-('営業ヤドンA','EIyadonA@co.bumi',1,20,1),
-('営業ヤドンB','EIyadonB@co.bumi',1,21,1),
-('営業ヤドンC','EIyadonC@co.bumi',1,22,1),
-('開発ヤドンA','KAyadonA@co.bumi',2,23,1),
-('開発ヤドンB','KAyadonB@co.bumi',2,24,1),
-('開発ヤドンC','KAyadonC@co.bumi',2,25,1),
-('開発ヤドンD','KAyadonD@co.bumi',2,26,1),
-('経理ヤドン','KEyadon@co.bumi',3,27,1),
-('人事ヤドン','JIyadon@co.bumi',4,23,1),
-('情シスヤドン','JOyadonA@co.bumi',5,23,1);
-
-INSERT INTO reports(person_id,content)
-VALUES
-(7,'営業ヤドンAの日報'),
-(8,'営業ヤドンBの日報'),
-(9,'営業ヤドンCの日報'),
-(10,'開発ヤドンAの日報'),
-(11,'開発ヤドンBの日報'),
-(12,'開発ヤドンCの日報'),
-(13,'開発ヤドンDの日報'),
-(14,'経理ヤドンの日報'),
-(15,'人事ヤドンの日報'),
-(16,'情シスヤドンの日報');
-
 Q4
 UPDATE people SET department_id=1 WHERE person_id=1;
 UPDATE people SET department_id=2 WHERE person_id=2;
