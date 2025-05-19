@@ -82,12 +82,11 @@ VALUES
 (15,'人事ヤドンの日報'),
 (16,'情シスヤドンの日報');
 
-Q4
-UPDATE people SET department_id=1 WHERE person_id=1;
-UPDATE people SET department_id=2 WHERE person_id=2;
-UPDATE people SET department_id=3 WHERE person_id=3;
+Q4* 86行目に86行目にperson_idの2と3追加
+UPDATE people SET department_id=1 WHERE person_id IN (1, 2, 3);
 UPDATE people SET department_id=4 WHERE person_id=4;
 UPDATE people SET department_id=5 WHERE person_id=6;
+
 
 Q5
 SELECT name, age FROM people WHERE gender = 1 ORDER BY age DESC;
@@ -121,12 +120,19 @@ INNER JOIN departments
 INNER JOIN reports
  ON people.person_id = reports.person_id;
 
-Q11
+Q11*　onを使わずに取得
 SELECT
- people.name
+  people.name
 FROM
- people
+  people
 LEFT JOIN reports
- ON people.person_id = reports.person_id
+  USING (person_id)
 WHERE
- reports.person_id is NULL;
+  reports.person_id IS NULL;
+
+ON有りの時は、カラム名がバラバラの時にも使用できる。
+ON無し（using）の時は、カラム名が同じ時にシンプルに使用できる。
+
+内部結合外部結合の違い説明
+内： 「両方にデータがあるものだけ」くっつけて表示
+外： 「左側のテーブルのすべてのデータ」を表示し、右に合うものがあればくっつけて表示
